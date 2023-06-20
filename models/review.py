@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-"""This is the review class"""
-from sqlalchemy.ext.declarative import declarative_base
-from models.base_model import BaseModel, Base
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
+"""class Review is defined here to inherit from BaseModel"""
+import models
+from models.base_model import BaseModel
 
 
-class Review(BaseModel, Base):
-    """This is the class for Review
-    Attributes:
-        place_id: place id
-        user_id: user id
-        text: review description
+class Review(BaseModel):
+    """class Review inherits from BaseModel
+    Arguments:
+        place_id: string - empty string: it will be the Place.id
+        user_id: string - empty string: it will be the User.id
+        text: string - empty string
     """
-    __tablename__ = "reviews"
-    text = Column(String(1024), nullable=False)
-    place_id = Column(String(60), ForeignKey("places.id"), nullable=False)
-    user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
+
+    # public instances
+    place_id = ""
+    user_id = ""
+    text = ""
